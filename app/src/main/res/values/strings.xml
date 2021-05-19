@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Finance Manag</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="card_title">card_title</string>
+    <string name="card_price">card_price</string>
+    <string name="transaction">Transaction</string>
+    <string name="salary">Salary</string>
+    <string name="powderedby">Powdered by AB Inc</string>
+    <string name="save">Save</string>
+    <string name="enter_transaction_category">Enter Transaction Category</string>
+    <string name="enter_transaction_description">Enter Transaction Description</string>
+    <string name="clear">Clear</string>
+    <string name="inr">INR</string>
+    <string name="enter_the_description">Enter the Description</string>
+    <string name="enter_the_category">Enter the Category</string>
+    <string name="select_a_date">Select a Date</string>
+    <string name="enter_the_amount">Enter the Amount</string>
+    <string name="debit">Debit</string>
+    <string name="credit">Credit</string>
+    <string name="add_new_trans">Add new Trans</string>
+    <string name="hide_the_transaction">Hide the Transaction</string>
+    <string name="show_the_transaction">Show the Transaction</string>
+    <string name="acc">Acc</string>
+</resources>

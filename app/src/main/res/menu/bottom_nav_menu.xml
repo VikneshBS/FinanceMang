@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_dashboard" />
+
+    <item
+        android:id="@+id/navigation_transaction"
+        android:icon="@drawable/baseline_transfer_within_a_station_black_24dp"
+        android:title="@string/transaction" />
+    <item
+        android:id="@+id/navigation_salary"
+        android:icon="@drawable/ic_salary"
+        android:title="@string/salary" />
+
+</menu>
