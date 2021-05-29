@@ -4,11 +4,12 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.DatePicker;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +19,7 @@ import com.example.financemang.utils.Constants;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.jetbrains.annotations.Nullable;
-
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,8 +31,11 @@ public class CreateTransactionActivity extends AppCompatActivity {
     private TextInputEditText et_trans_desc, et_trans_category, et_amount, et_trans_date;
     private SwitchMaterial switchAccBtn;
     private static Date s_date;
+    private Button clear_btn;
     private String trans_date;
+    private MenuItem saveMenuItem;
     private Calendar calendar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class CreateTransactionActivity extends AppCompatActivity {
         et_amount = findViewById(R.id.et_amount);
         et_trans_date = findViewById(R.id.et_trans_date);
         switchAccBtn = findViewById(R.id.switch_acc_btn);
+        clear_btn = findViewById(R.id.clear_btn);
 
         //set it as current date.
         String date_n = new SimpleDateFormat("dd MMM, yyyy", Locale.getDefault()).format(new Date());
@@ -52,11 +56,27 @@ public class CreateTransactionActivity extends AppCompatActivity {
         et_trans_date.setOnClickListener(v -> getDate());
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
         setTitle("Add Transaction");
+        //set on setOnKeyListener for TextInputEditText
+        et_trans_desc.addTextChangedListener(saveTextWatcher);
+        et_trans_category.addTextChangedListener(saveTextWatcher);
+        et_amount.addTextChangedListener(saveTextWatcher);
+        //clear button func
+        clear_btn.setOnClickListener(v -> {
+            et_amount.setText("");
+            et_amount.clearFocus();
+            et_trans_desc.setText("");
+            et_trans_desc.clearFocus();
+            et_trans_category.setText("");
+            et_trans_category.clearFocus();
+            et_trans_date.setText(date_n);
+            et_trans_date.clearFocus();
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.save_menu, menu);
+        saveMenuItem = menu.findItem(R.id.save_trans);
         return true;
     }
     @Override
@@ -71,40 +91,19 @@ public class CreateTransactionActivity extends AppCompatActivity {
     }
     //method to save transaction
     private void saveTrans(){
-        try {
             String trans_desc = et_trans_desc.getText().toString();
             String trans_category = et_trans_category.getText().toString();
             String trans_date = et_trans_date.getText().toString();
             int acc = switchAccBtn.isChecked() ? 1 : 0;
             float amount = Float.parseFloat(et_amount.getText().toString());
-            boolean flag = true;
-            if (trans_desc.trim().isEmpty()) {
-                et_trans_date.setError("Description must not be empty");
-                flag = false;
-            }
-            if (trans_category.trim().isEmpty()) {
-                et_trans_category.setError("Category must not be empty");
-                flag = false;
-            }
-            if (amount == 0) {
-                et_amount.setError("Amount cannot not be zero");
-                flag = false;
-            }
-            if (flag) {
-                Toast.makeText(this, trans_desc + " " + trans_category + " " + trans_date + " " + amount + " " + acc, Toast.LENGTH_SHORT).show();
-                Intent data = new Intent();
-                data.putExtra(Constants.EXTRA_DESC, trans_desc);
-                data.putExtra(Constants.EXTRA_CATEGORY, trans_category);
-                data.putExtra(Constants.EXTRA_ACC, acc);
-                data.putExtra(Constants.EXTRA_AMOUNT, amount);
-                data.putExtra(Constants.EXTRA_DATE, trans_date);
-                setResult(RESULT_OK, data);
-                finish();
-            }
-        }
-        catch(Exception e){
-            Toast.makeText(this,"Enter all the data",Toast.LENGTH_SHORT).show();
-        }
+            Intent data = new Intent();
+            data.putExtra(Constants.EXTRA_DESC, trans_desc);
+            data.putExtra(Constants.EXTRA_CATEGORY, trans_category);
+            data.putExtra(Constants.EXTRA_ACC, acc);
+            data.putExtra(Constants.EXTRA_AMOUNT, amount);
+            data.putExtra(Constants.EXTRA_DATE, trans_date);
+            setResult(RESULT_OK, data);
+            finish();
     }
     //method to get date
     private void getDate(){
@@ -131,4 +130,25 @@ public class CreateTransactionActivity extends AppCompatActivity {
                 calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
+
+    private TextWatcher saveTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String trans_desc = et_trans_desc.getText().toString().trim();
+            String trans_category = et_trans_category.getText().toString().trim();
+            String trans_amount = et_amount.getText().toString().trim();
+
+            saveMenuItem.setEnabled(!trans_desc.isEmpty() && !trans_amount.isEmpty() && !trans_category.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 }

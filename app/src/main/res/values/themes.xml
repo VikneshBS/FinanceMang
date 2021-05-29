@@ -24,15 +24,11 @@
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="SplashScreenTheme" parent = "Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen_background</item>
-    </style>
-
     <style name="Widget.App.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.Switch</item>
     </style>
     <style name="ThemeOverlay.App.Switch" parent="">
-        <item name="colorOnSurface">@color/red</item>
         <item name="colorSecondary">@color/green</item>
+        <item name="colorSurface">@color/red</item>
     </style>
 </resources>

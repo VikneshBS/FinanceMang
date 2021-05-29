@@ -1,16 +1,16 @@
-package com.example.financemang.ui.salary;
+package com.example.financemang.ui.savings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SalaryViewModel extends ViewModel {
+public class SavingsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SalaryViewModel() {
+    public SavingsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Salary fragment under Development");
+        mText.setValue("This is Savings fragment under Development");
     }
 
     public LiveData<String> getText() {

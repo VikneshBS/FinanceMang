@@ -1,4 +1,4 @@
-package com.example.financemang.ui.salary;
+package com.example.financemang.ui.savings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.financemang.R;
 
-public class SalaryFragment extends Fragment {
+public class SavingsFragment extends Fragment {
 
-    private SalaryViewModel salaryViewModel;
+    private SavingsViewModel savingsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        salaryViewModel =
-                new ViewModelProvider(this).get(SalaryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_salary, container, false);
+        savingsViewModel =
+                new ViewModelProvider(this).get(SavingsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_savings, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
-        salaryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        savingsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

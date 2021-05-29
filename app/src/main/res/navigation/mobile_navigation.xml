@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_salary"
-        android:name="com.example.financemang.ui.salary.SalaryFragment"
-        android:label="@string/salary"
-        tools:layout="@layout/fragment_salary" />
+        android:name="com.example.financemang.ui.savings.SavingsFragment"
+        android:label="@string/savings"
+        tools:layout="@layout/fragment_savings" />
 </navigation>

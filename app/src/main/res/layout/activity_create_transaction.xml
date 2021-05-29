@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +14,6 @@
             android:id="@+id/til_trans_desc"
             style="@style/Widget.TextInputLayout"
             android:layout_width="match_parent"
-            android:background="@color/white"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             app:startIconDrawable="@drawable/ic_baseline_description_24">
@@ -26,33 +26,36 @@
                 android:inputType="textCapWords"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_trans_category"
             style="@style/Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:id="@+id/til_trans_category"
             app:startIconDrawable="@drawable/ic_baseline_category_24">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_trans_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_the_category"
-                android:id="@+id/et_trans_category"
-                />
+                android:hint="@string/enter_the_category" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.TextInputLayout"
             android:id="@+id/til_trans_date"
+            style="@style/Widget.TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             app:startIconDrawable="@drawable/ic_baseline_calendar_today_24">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_trans_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-                android:hint="@string/select_a_date"/>
+                android:hint="@string/select_a_date"
+                android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
@@ -80,23 +83,25 @@
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switch_acc_btn"
+                style="@style/Widget.App.Switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                style="@style/Widget.App.Switch"
-                android:textOn="@string/credit"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:text="@string/acc"
-                android:checked="false"
-                android:layout_margin="5dp"
-                android:textOff="@string/debit" />
+                android:textOff="@string/debit"
+                android:textOn="@string/credit" />
         </RelativeLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/clear_btn"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/clear"
             android:layout_margin="5dp"
-            style="?attr/materialButtonOutlinedStyle"/>
+            android:text="@string/clear" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

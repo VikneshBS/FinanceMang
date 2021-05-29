@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.financemang.model.TransactionRepository;
 import com.example.financemang.model.entity.TransactionModel;
@@ -13,8 +12,8 @@ import com.example.financemang.model.entity.TransactionModel;
 import java.util.List;
 
 public class TransactionViewModel extends AndroidViewModel{
-    private TransactionRepository repository;
-    private LiveData<List<TransactionModel>> trans_list;
+    private final TransactionRepository repository;
+    private final LiveData<List<TransactionModel>> trans_list;
 
     //constructor of transactionViewModel
     public TransactionViewModel(@NonNull Application application){

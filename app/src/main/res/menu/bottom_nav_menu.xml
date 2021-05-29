@@ -13,6 +13,6 @@
     <item
         android:id="@+id/navigation_salary"
         android:icon="@drawable/ic_salary"
-        android:title="@string/salary" />
+        android:title="@string/savings" />
 
 </menu>

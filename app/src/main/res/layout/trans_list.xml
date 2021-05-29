@@ -9,53 +9,68 @@
 
     <RelativeLayout
         android:id="@+id/rl1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
+
         <TextView
             android:id="@+id/tv_item_date"
-            android:ellipsize="end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"/>
-        <TextView
+            android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
+            android:ellipsize="end"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:typeface="normal" />
+
+        <TextView
+            android:id="@+id/tv_item_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_item_desc"
             android:layout_below="@+id/tv_item_date"
-            android:maxLines="2"
+            android:layout_margin="5dp"
             android:ellipsize="end"
-            android:textColor="@color/black"/>
+            android:maxLines="2" />
+
         <TextView
             android:id="@+id/tv_item_category"
-            android:layout_below="@+id/tv_item_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_item_desc"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:ellipsize="end"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textStyle="italic" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:id="@+id/rl2"
-        android:layout_gravity="end"
-        android:layout_width="125dp"
+        android:layout_gravity="bottom|end"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
         <TextView
-            android:layout_width="190dp"
-            android:layout_height="wrap_content"
             android:id="@+id/tv_item_amount"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/tv_item_bal"
-            android:layout_below="@+id/tv_item_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
             android:ellipsize="end"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textColor="@color/green"/>
+
+        <TextView
+            android:id="@+id/tv_item_bal"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_item_amount"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="1" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

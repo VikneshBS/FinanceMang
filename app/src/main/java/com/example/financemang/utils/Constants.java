@@ -9,6 +9,8 @@ public class Constants {
     public static final String EXTRA_CATEGORY = "EXTRA_CATEGORY";
     public static final String EXTRA_ACC = "EXTRA_ACC";
     public static final String EXTRA_AMOUNT = "EXTRA_AMOUNT";
-    public static final String EXTRA_BAL = "EXTRA_BAL";
+    public static final String BALANCE = "BALANCE";
+    public static final String CURRENCY_SYMBOL = "CURRENCY_SYMBOL";
+    public static final String PACKAGE_NAME = "com.example.financemang";
     public static final int ADD_TODO = 1;
 }
