@@ -21,10 +21,6 @@ public interface TransactionDao {
     @Delete
     void deleteTrans(TransactionModel transactionModel);
 
-    //annotation for updating
-    @Update
-    void updateTrans(TransactionModel transactionModel);
-
     //Selecting last 5 transaction
     @Query("SELECT * FROM transactions ORDER BY trans_Id DESC LIMIT 5")
     LiveData<List<TransactionModel>> getTransactions();

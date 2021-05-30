@@ -2,7 +2,10 @@ package com.example.financemang.model.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import org.jetbrains.annotations.NotNull;
 
 //@Entity annotation for giving table name and declaring it
 @Entity(tableName = "transactions")
@@ -33,6 +36,17 @@ public class TransactionModel {
     @ColumnInfo(name = "balance")
     private float balance;
 
+    public TransactionModel(int trans_Id, String date, String description, String category, float amount, int acc, float balance) {
+        this.trans_Id = trans_Id;
+        this.date = date;
+        this.description = description;
+        this.category = category;
+        this.amount = amount;
+        this.acc = acc;
+        this.balance = balance;
+    }
+
+    @Ignore
     public TransactionModel(String date, String description, String category, float amount, int acc, float balance) {
         this.date = date;
         this.description = description;
@@ -42,6 +56,7 @@ public class TransactionModel {
         this.balance = balance;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "TransactionModel{" +
@@ -55,59 +70,60 @@ public class TransactionModel {
                 '}';
     }
 
-    public int getTrans_Id() {
-        return trans_Id;
-    }
-
     public void setTrans_Id(int trans_Id) {
         this.trans_Id = trans_Id;
-    }
-
-    public String getDate() {
-        return date;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
-    public float getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
+    public void setAmount(float amount) {
         this.amount = amount;
-    }
-
-    public int getAcc() {
-        return acc;
     }
 
     public void setAcc(int acc) {
         this.acc = acc;
     }
 
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public int getTrans_Id() {
+        return trans_Id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public int getAcc() {
+        return acc;
+    }
+
     public float getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
 }

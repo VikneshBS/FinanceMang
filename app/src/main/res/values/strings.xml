@@ -21,6 +21,8 @@
     <string name="add_new_trans">Add new Trans</string>
     <string name="hide_the_transaction">Hide the Transaction</string>
     <string name="show_the_transaction">Show the Transaction</string>
-    <string name="acc">D/C</string>
-    <string name="no_transactions">No Transactions</string>
+    <string name="acc">Dr/Cr</string>
+    <string name="no_transactions">No Transactions. Click + button to Add Transaction</string>
+    <string name="balance">Balance</string>
+    <string name="click_tap_here_to_view">Click/Tap Here to View</string>
 </resources>

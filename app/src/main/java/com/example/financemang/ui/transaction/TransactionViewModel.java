@@ -31,10 +31,6 @@ public class TransactionViewModel extends AndroidViewModel{
         repository.delete(transactionModel);
     }
 
-    public void update(TransactionModel transactionModel){
-        repository.update(transactionModel);
-    }
-
     public LiveData<List<TransactionModel>> getTrans_list(){
         return trans_list;
     }

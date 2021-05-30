@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    card:cardCornerRadius="5dp"
+    card:cardElevation="5dp"
+    card:cardUseCompatPadding="true"
     android:layout_height="match_parent">
 
         <LinearLayout

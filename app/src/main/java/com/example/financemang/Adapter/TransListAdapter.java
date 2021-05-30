@@ -1,6 +1,5 @@
 package com.example.financemang.Adapter;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.financemang.FinanceMang;
 import com.example.financemang.R;
 import com.example.financemang.model.entity.TransactionModel;
-import com.example.financemang.utils.Constants;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -22,7 +19,7 @@ import java.util.List;
 public class TransListAdapter extends RecyclerView.Adapter<TransListAdapter.TransListHolder> {
     private final List<TransactionModel> trans_list;
     private final String currency_sym;
-    private final DecimalFormat df = new DecimalFormat("#,##,##,###.00");
+    private final DecimalFormat df = new DecimalFormat("#,##,##,##0.00");
 
     public static class TransListHolder extends RecyclerView.ViewHolder {
         private final TextView desc;
@@ -43,8 +40,8 @@ public class TransListAdapter extends RecyclerView.Adapter<TransListAdapter.Tran
     public TransListAdapter(List<TransactionModel> trans_list, String currency_sym){
         this.trans_list = trans_list;
         this.currency_sym = currency_sym;
-
     }
+
     @NonNull
     @Override
     public TransListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -55,8 +52,8 @@ public class TransListAdapter extends RecyclerView.Adapter<TransListAdapter.Tran
     @Override
     public void onBindViewHolder(TransListAdapter.TransListHolder holder, int position) {
         TransactionModel currentTrans = trans_list.get(position);
-        holder.desc.setText(currentTrans.getDescription());
-        holder.category.setText(currentTrans.getCategory());
+        holder.desc.setText(String.format("Desc: %s", currentTrans.getDescription()));
+        holder.category.setText(String.format("Category: %s", currentTrans.getCategory()));
         holder.amount.setText(String.format("%s%s %s", currency_sym, df.format(currentTrans.getAmount()), currentTrans.getAcc() == 0 ? "Dr" : "Cr"));
         if (currentTrans.getAcc() == 0) holder.amount.setTextColor(Color.RED);
         holder.date.setText(currentTrans.getDate());
@@ -66,5 +63,18 @@ public class TransListAdapter extends RecyclerView.Adapter<TransListAdapter.Tran
     @Override
     public int getItemCount() {
         return trans_list.size();
+    }
+
+    public void removeItem(int position) {
+        trans_list.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void notifyNoChange() {
+         notifyDataSetChanged();
+    }
+
+    public List<TransactionModel> getData() {
+        return trans_list;
     }
 }

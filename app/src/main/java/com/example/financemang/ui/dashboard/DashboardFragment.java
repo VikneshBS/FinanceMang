@@ -7,33 +7,42 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.financemang.FinanceMang;
 import com.example.financemang.R;
 
-import java.util.Objects;
+import java.text.DecimalFormat;
 
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
+    private final DecimalFormat df = new DecimalFormat("#,##,##,##0.00");
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        FinanceMang financeMang = (FinanceMang)getActivity().getApplication();
+
+        final CardView cv_balance = root.findViewById(R.id.cvBalance);
+        final TextView clickView = root.findViewById(R.id.clickView);
+        final TextView balance_price = root.findViewById(R.id.tvBalPrice);
+        FinanceMang financeMang = (FinanceMang) requireActivity().getApplication();
         financeMang.setPref(requireContext());
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+
+        clickView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(String.format("%s%s",financeMang.getCurrency_sym(),financeMang.getBalance()));
+            public void onClick(View v) {
+                cv_balance.setVisibility(View.VISIBLE);
+                clickView.setVisibility(View.INVISIBLE);
             }
         });
+
+        balance_price.setText(String.format("%s%s", financeMang.getCurrency_sym(), df.format(financeMang.getBalance())));
+
         return root;
     }
 }
