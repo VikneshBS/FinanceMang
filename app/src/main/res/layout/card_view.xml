@@ -5,29 +5,40 @@
     card:cardCornerRadius="5dp"
     card:cardElevation="5dp"
     card:cardUseCompatPadding="true"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-        <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
+        <ImageView
+            android:id="@+id/accImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/acc" />
         <!-- Title, secondary and supporting text -->
             <TextView
+                android:id="@+id/tv_cat_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/card_title"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:typeface="normal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/card_price"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary" />
-
+        <TextView
+            android:id="@+id/tv_cat_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/card_price"
+            android:textAlignment="textEnd" />
         </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

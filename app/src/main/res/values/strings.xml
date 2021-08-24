@@ -23,6 +23,25 @@
     <string name="show_the_transaction">Show the Transaction</string>
     <string name="acc">Dr/Cr</string>
     <string name="no_transactions">No Transactions. Click + button to Add Transaction</string>
-    <string name="balance">Balance</string>
+    <string name="balance">Current Balance</string>
     <string name="click_tap_here_to_view">Click/Tap Here to View</string>
+    <string name="summary">Summary</string>
+    <string name="debit_count">Debit Count</string>
+    <string name="credit_count">Credit Count</string>
+    <string name="total_debit">Total Debit</string>
+    <string name="total_credit">Total Credit</string>
+    <string name="category_summary">Category Summary</string>
+    <string name="no_data">No Data</string>
+    <string name="amount">Amount</string>
+    <string name="category_name">Category Name</string>
+    <string name="no_category_summary_please_add_some_transaction">No Category Summary. Please Add some transaction</string>
+    <string name="savings_summary">Savings Summary</string>
+    <string name="savings_category_summary">Savings Category Summary</string>
+    <string name="overall_balance">Overall Balance</string>
+    <string name="savings_balance">Savings Balance</string>
+    <string name="current_bal_savings_bal">(Current Bal + Savings Bal)</string>
+    <string name="export">Export</string>
+    <string name="set_currency_symbol">Set Currency Symbol</string>
+    <string name="clear_all_data">Clear All Data</string>
+    <string name="enter_your_currency_symbol">Enter your Currency Symbol</string>
 </resources>

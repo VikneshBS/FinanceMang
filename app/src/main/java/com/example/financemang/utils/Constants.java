@@ -13,4 +13,5 @@ public class Constants {
     public static final String CURRENCY_SYMBOL = "CURRENCY_SYMBOL";
     public static final String PACKAGE_NAME = "com.example.financemang";
     public static final int ADD_TODO = 1;
+    public static final String SAVINGS_MAP = "SAVINGS_MAP";
 }

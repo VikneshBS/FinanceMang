@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/export_icon"
+        android:icon="@drawable/export_icon"
+        android:title="@string/export"
+        app:showAsAction="ifRoom"
+        android:enabled="true"/>
+    <item android:id="@+id/setCurrencySymbol"
+        android:title="@string/set_currency_symbol"/>
+    <item android:id="@+id/clear_all"
+        android:title="@string/clear_all_data"/>
+</menu>

@@ -1,12 +1,14 @@
 package com.example.financemang;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+public class MainActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+    private static final int REQUEST_WRITE_PERMISSION = 786;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

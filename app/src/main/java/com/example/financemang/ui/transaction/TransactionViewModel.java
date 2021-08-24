@@ -12,8 +12,8 @@ import com.example.financemang.model.entity.TransactionModel;
 import java.util.List;
 
 public class TransactionViewModel extends AndroidViewModel{
-    private final TransactionRepository repository;
-    private final LiveData<List<TransactionModel>> trans_list;
+    final private TransactionRepository repository;
+    final private LiveData<List<TransactionModel>> trans_list;
 
     //constructor of transactionViewModel
     public TransactionViewModel(@NonNull Application application){
@@ -33,5 +33,9 @@ public class TransactionViewModel extends AndroidViewModel{
 
     public LiveData<List<TransactionModel>> getTrans_list(){
         return trans_list;
+    }
+
+    public void resetAll(){
+        repository.resetAll();
     }
 }

@@ -12,8 +12,8 @@ import com.example.financemang.model.entity.TransactionModel;
 import java.util.List;
 
 public class TransactionRepository {
-    private TransactionDao transactionDao;
-    private LiveData<List<TransactionModel>> trans_list;
+    private final TransactionDao transactionDao;
+    private final LiveData<List<TransactionModel>> trans_list;
 
     //Transaction Repository Constructor With Argument Application
     public TransactionRepository(Application application){
@@ -30,13 +30,30 @@ public class TransactionRepository {
         new DeleteTransactionAsyncTask(transactionDao).execute(transaction);
     }
 
+    public void resetAll(){
+        new ResetTranasctionAsyncTask(transactionDao).execute();
+    }
+
+    public static class ResetTranasctionAsyncTask extends AsyncTask<Void,Void,Void>{
+        final private TransactionDao transactionDao;
+        private ResetTranasctionAsyncTask(TransactionDao transactionDao){
+            this.transactionDao = transactionDao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            transactionDao.resetTable();
+            return null;
+        }
+    }
+
     public LiveData<List<TransactionModel>> getTransactions(){
         return trans_list;
     }
 
     //all asyncronous tasks to run in background thread
     private static class InsertTransactionAsyncTask extends AsyncTask<TransactionModel, Void, Void>{
-        private TransactionDao transactionDao;
+        final private TransactionDao transactionDao;
         private InsertTransactionAsyncTask(TransactionDao transactionDao){
             this.transactionDao = transactionDao;
         }
@@ -47,7 +64,7 @@ public class TransactionRepository {
         }
     }
     private static class DeleteTransactionAsyncTask extends AsyncTask<TransactionModel, Void, Void> {
-        private TransactionDao transactionDao;
+        final private TransactionDao transactionDao;
         private DeleteTransactionAsyncTask(TransactionDao transactionDao) {
             this.transactionDao=transactionDao;
         }
@@ -57,5 +74,4 @@ public class TransactionRepository {
             return null;
         }
     }
-
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <!-- drawable/circle_card_icon.xml -->
+    <shape android:shape="rectangle">
+        <solid android:color="#DBF4DD"/>
+        <size
+            android:width="25dp"
+            android:height="30dp"
+            />
+    </shape>
+</item>
+<item android:drawable="@drawable/ic_baseline_arrow_upward_24" />
+</layer-list>

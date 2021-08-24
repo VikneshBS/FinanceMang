@@ -70,6 +70,9 @@ public class TransactionModel {
                 '}';
     }
 
+    public String[] getCSVFormat(){
+        return new String[]{String.valueOf(trans_Id), date  ,description,category, String.valueOf(amount), (acc == 0 ? "Debit" : "Credit") , String.valueOf(balance)};
+    }
     public void setTrans_Id(int trans_Id) {
         this.trans_Id = trans_Id;
     }

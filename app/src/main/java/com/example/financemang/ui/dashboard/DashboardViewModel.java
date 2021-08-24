@@ -1,19 +1,19 @@
 package com.example.financemang.ui.dashboard;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.financemang.model.dao.TransactionDao;
+
+import java.util.List;
+
 public class DashboardViewModel extends ViewModel {
+    private List<TransactionDao.CatSum> catSumList;
 
-    private MutableLiveData<String> mText;
+    public DashboardViewModel(){
 
-    public DashboardViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment under Development");
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public List<TransactionDao.CatSum> getCatSumList(){
+        return catSumList;
     }
 }
